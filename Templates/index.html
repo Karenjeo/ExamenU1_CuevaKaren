@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Pico y Placa</title>
 </head>
 <body>
-    {% for message in get_flashed_messages() %}
-    <h2 class="text-center text-warning">{{ message }}</h2>
-    {% endfor %}
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Call center de atención
+            al usuario de “Pico y Placa” de la ciudad de Quito-Ecuador.</h1>
+        <p>By: Karen Cueva</p> 
+      </div>
+<br>
     <br>
     <div class="col-12" position-relative>
         <center>
@@ -20,41 +25,21 @@
     <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Placa</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
         <p class="fst-italic">
             <tbody>
-                {% for tarea in tareas_pen %}
+                {% for pico in placa %}
                 <tr>
                     <!--Mostrar la descripcion de la tarea-->
-                    <th>{{tarea.tarea}}</th>
+                    <th>{{pico.placas}}</th>
                     <!--Mostrar correo de la tarea-->
-                    <th>{{tarea.correo}}</th>
+                    <th>{{pico.fecha}}</th>
                     <!--Mostrar prioridad de la tarea-->
-                    <th>{{tarea.prioridad}}</th>
+                    <th>{{pico.hora}}</th>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -64,24 +49,23 @@
       <div class="col-12">
           <center>
               <h2>Agregar tarea</h2>
-          
+          <br>
               <div class="col-md-4">
                   <div class="row justify-content-center">
   
-                 <!-- <form method="post" action="{{url_for('enviar')}}">-->
                       <div class="form-group">
-                          <label class="form-label">Nombre de la tarea</label>
+                          <label class="form-label">Numero de placa</label>
                           <input type="text" class="form-control" placeholder="Ingrese la descripcion de la tarea"
-                              name="tarea">
+                              name="placas">
                       </div>
                       <div class="form-group">
-                          <label class="form-label">Correo electronico</label>
+                          <label class="form-label">fecha</label>
                           <input type="email" class="form-control" placeholder="Ingrese el correo electronico"
-                              name="correo">
+                              name="fecha">
                       </div>
                       <div class="form-group" class="col-md-4">
-                          <label class="form-label">Nivel de prioridad</label>
-                          <select class="form-control" name="prioridad">
+                          <label class="form-label">Hora</label>
+                          <select class="form-control" name="hora">
                               <option value="Bajo">Bajo</option>
                               <option value="Medio">Medio</option>
                               <option value="Alto">Alto</option>
